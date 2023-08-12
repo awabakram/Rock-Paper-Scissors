@@ -28,18 +28,18 @@ function playRound(playerSelection, computerSelection)
     computerSelection = computerSelection.toLowerCase()
     if (playerSelection == computerSelection)
     {
-        return "Tie, you both picked " + playerSelection
+        return "Tie, you both picked " + playerSelection;
     }
 
     if (playerSelection == "rock")
     {
         if (computerSelection == "scissors") 
         {
-            return "You win! Rock beats Scissors"
+            return "You win! Rock beats Scissors";
         }
         if (computerSelection == "paper") 
         {
-            return "You Lose! Paper beats Rock"
+            return "You Lose! Paper beats Rock";
         }
     }
 
@@ -59,11 +59,11 @@ function playRound(playerSelection, computerSelection)
     {
         if (computerSelection == "rock") 
         {
-            return "You Lose! Rock beats Scissors"
+            return "You Lose! Rock beats Scissors";
         }
-        if (computerSelection == "Paper") 
+        if (computerSelection == "paper") 
         {
-            return "You Win! Scissors beats Paper"
+            return "You Win! Scissors beats Paper";
         }
     }
 }
@@ -75,18 +75,18 @@ function playRound2(playerSelection, computerSelection)
     computerSelection = computerSelection.toLowerCase()
     if (playerSelection == computerSelection)
     {
-        return 0
+        return 0;
     }
 
     if (playerSelection == "rock")
     {
         if (computerSelection == "scissors") 
         {
-            return 1
+            return 1;
         }
         if (computerSelection == "paper") 
         {
-            return 0
+            return 0;
         }
     }
 
@@ -94,11 +94,11 @@ function playRound2(playerSelection, computerSelection)
     {
         if (computerSelection == "scissors") 
         {
-            return 0
+            return 0;
         }
         if (computerSelection == "rock") 
         {
-            return 1
+            return 1;
         }
     }
 
@@ -106,11 +106,11 @@ function playRound2(playerSelection, computerSelection)
     {
         if (computerSelection == "rock") 
         {
-            return 0
+            return 0;
         }
-        if (computerSelection == "Paper") 
+        if (computerSelection == "paper") 
         {
-            return 1
+            return 1;
         }
     }
 }
@@ -135,8 +135,41 @@ function game()
     }
 }
 
-const playerSelection = "rock"
-const computerSelection = getComputerChoice()
+// const playerSelection = "rock"
+// const computerSelection = getComputerChoice()
 // console.log(playRound(playerSelection,computerSelection))
 
-game()
+// game()
+
+let winCount = 0;
+const winOutcomeDiv = document.getElementById("win-outcome");
+const scoreDiv = document.getElementById("score");
+
+const btnRock = document.getElementById("rock");
+btnRock.addEventListener("click", function() {
+    let computerChoice =  getComputerChoice();
+    let outcome = playRound("rock",computerChoice);
+    winCount += playRound2("rock",computerChoice);
+    winOutcomeDiv.textContent = outcome;
+    scoreDiv.textContent = winCount.toString();
+});
+
+const btnPaper = document.getElementById("paper");
+btnPaper.addEventListener("click", function() {
+    let computerChoice =  getComputerChoice();
+    let outcome = playRound("paper",computerChoice);
+    winCount += playRound2("paper",computerChoice);
+    winOutcomeDiv.textContent = outcome;
+    scoreDiv.textContent = winCount.toString();
+});
+
+const btnScissors = document.getElementById("scissors");
+btnScissors.addEventListener("click", function() {
+    console.log("clicked")
+    let computerChoice =  getComputerChoice();
+    let outcome = playRound("scissors",computerChoice);
+    winCount += playRound2("scissors",computerChoice);
+    winOutcomeDiv.textContent = outcome;
+    scoreDiv.textContent = winCount;
+    console.log(winCount)
+});

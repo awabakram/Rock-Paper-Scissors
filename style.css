@@ -1,0 +1,58 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 200px;
+}
+
+.choice-button {
+    height: 100px;
+    width: 200px;
+    font-size: x-large;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px lightgray;
+}
+
+.choice-button:active {
+    box-shadow: none;
+}
+
+#rock {
+    background-color: grey;
+    color: white;
+}
+
+#paper {
+    background-color: floralwhite;
+    color: black;
+}
+
+#scissors {
+    background-color: yellowgreen;
+    color: white;
+}
+
+#outcome-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    margin-top: 10px;
+}
+
+#win-outcome {
+    margin-left: 8px;
+}
+
+#score-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin: 8px; */
+}
+
+#score {
+    margin-left: 8px;
+}
